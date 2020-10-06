@@ -3,6 +3,7 @@ ext.versions = [
         uiSupport        : '1.0.0',
         materialUISupport: '1.1.0',
         kotlin           : '1.4.10',
+        rxKotlin         : '2.4.0',
         rxJava           : '2.2.17',
         rxAndroid        : '2.1.1',
         rxBinding        : '2.2.0',
@@ -28,7 +29,7 @@ ext.versions = [
         testCore         : "1.1.0",
         testRunner       : "1.1.1",
         archCore         : "2.0.1",
-        androidLifecycle : '2.2.0',
+        androidLifecycle : "2.2.0",
 ]
 
 ext.libraries = [
@@ -43,6 +44,7 @@ ext.libraries = [
         rxBindingRecyclerView    : "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$versions.rxBinding",
         rxBinding                : "com.jakewharton.rxbinding2:rxbinding:$versions.rxBinding",
         rxAndroid                : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        rxKotlin                 : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
         rxJava                   : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
         okhttpLoggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
         okhttp                   : "com.squareup.okhttp3:okhttp:$versions.okhttp",
@@ -56,8 +58,12 @@ ext.libraries = [
         daggerAndroid            : "com.google.dagger:dagger-android-support:$versions.dagger",
         gson                     : "com.google.code.gson:gson:$versions.gson",
         constraintLayout         : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        lifecycleViewModel       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidLifecycle",
+        lifecycleLiveData        : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidLifecycle",
+        lifecycleRuntime         : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidLifecycle",
+        lifecycleViewModelState  : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.androidLifecycle",
         lifecycleExtension       : "androidx.lifecycle:lifecycle-extensions:$versions.androidLifecycle",
-        lifecycleViewModel       : "androidx.lifecycle:lifecycle-viewmodel:$versions.androidLifecycle",
+
 ]
 
 ext.unitTestLibraries = [

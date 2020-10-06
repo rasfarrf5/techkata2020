@@ -1,13 +1,15 @@
 package com.sia.tech.kata.main
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor() : ViewModel(), LifecycleObserver {
 
-    var navigateTo = MutableLiveData(false)
+    var mainLiveData = MutableLiveData(false)
 
-    fun onLoginClicked() {
-        navigateTo.value = true
+    fun goToCurrencyButtonClicked() {
+        mainLiveData.value = true
     }
 }

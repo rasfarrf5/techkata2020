@@ -9,13 +9,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import com.sia.tech.kata.R
 import com.sia.tech.kata.TechKataApplication
+import com.sia.tech.kata.currency.CurrencyActivity
 import com.sia.tech.kata.databinding.ActivityMainBinding
-import com.sia.tech.kata.login.LoginActivity
 
 class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var mainViewModel: MainViewModel
-
     private lateinit var viewDataBinding: ViewDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +28,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         (viewDataBinding as ActivityMainBinding).lifecycleOwner = this
         (viewDataBinding as ActivityMainBinding).mainViewModel = mainViewModel
 
-        mainViewModel.navigateTo.observe(this, {
-            startActivity(Intent(this, LoginActivity::class.java))
+        mainViewModel.mainLiveData.observe(this, {
+            if (it) {
+                startActivity(Intent(this, CurrencyActivity::class.java))
+            }
         })
     }
 }

@@ -44,16 +44,27 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    implementation project(':currency-service')
+
     implementation libraries.kotlinStd
     implementation libraries.androidSupportAppCompat
     implementation libraries.constraintLayout
     implementation libraries.dagger
     implementation libraries.daggerAndroid
-    implementation libraries.lifecycleExtension
     implementation libraries.lifecycleViewModel
+    implementation libraries.lifecycleLiveData
+    implementation libraries.lifecycleRuntime
+    implementation libraries.lifecycleViewModelState
+    implementation libraries.lifecycleExtension
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.rxKotlin
+    implementation libraries.rxAndroid
+    implementation libraries.rxBinding
 
     kapt compilers.dagger
     kapt compilers.daggerAndroid
+    kapt compilers.lifecycleCompiler
 
     androidTestImplementation instrumentationTestLibraries.espressoCore
     androidTestImplementation instrumentationTestLibraries.espressoIntents

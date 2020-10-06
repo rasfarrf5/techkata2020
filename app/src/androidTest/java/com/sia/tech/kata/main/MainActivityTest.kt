@@ -5,7 +5,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.sia.tech.kata.base.TechKataTestRule
-import com.sia.tech.kata.login.LoginActivity
+import com.sia.tech.kata.currency.CurrencyActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -27,6 +27,6 @@ class MainActivityTest {
             .seesLoginButton()
             .clicksButton()
 
-        intended(hasComponent(LoginActivity::class.java.name))
+        intended(hasComponent(CurrencyActivity::class.java.name))
     }
 }

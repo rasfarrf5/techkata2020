@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="mainViewModel"
-            type="com.sia.tech.kata.main.MainViewModel" />
+            name="currencyViewModel"
+            type="com.sia.tech.kata.currency.CurrencyViewModel" />
     </data>
 
     <LinearLayout
@@ -13,12 +13,12 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/goToCurrencyButton"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/currencyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()-> mainViewModel.goToCurrencyButtonClicked()}"
-            android:text="Goto Currency" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </layout>

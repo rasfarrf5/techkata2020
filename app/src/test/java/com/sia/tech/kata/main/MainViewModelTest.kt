@@ -21,6 +21,6 @@ class MainViewModelTest {
     fun onLoginClicked_() {
         subject.onLoginClicked()
 
-        assertThat(subject.navigateTo.value).isTrue()
+        assertThat(subject.mainLiveData.value).isTrue()
     }
 }

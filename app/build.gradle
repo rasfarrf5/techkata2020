@@ -32,9 +32,12 @@ android {
     }
 
     testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -68,6 +71,8 @@ dependencies {
     androidTestImplementation unitTestLibraries.mockito
     testImplementation unitTestLibraries.junit
     testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.assertj
+    testImplementation unitTestLibraries.coreTesting
 
     // androidTestImplementation unitTestLibraries.roboElectric
 

@@ -15,6 +15,7 @@ ext.versions = [
         junit            : '4.12',
         mockito          : '2.25.1',
         assertj          : '3.17.2',
+        coreTesting      : '1.1.1',
 
         roboElectric     : '4.4',
         espresso         : '3.1.0',
@@ -64,7 +65,8 @@ ext.unitTestLibraries = [
         mockito      : "org.mockito:mockito-inline:$versions.mockito",
         assertj      : "org.assertj:assertj-core:$versions.assertj",
         kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
-        roboElectric : "org.robolectric:robolectric:$versions.roboElectric"
+        roboElectric : "org.robolectric:robolectric:$versions.roboElectric",
+        coreTesting  : "android.arch.core:core-testing:$versions.coreTesting"
 ]
 
 ext.instrumentationTestLibraries = [

@@ -8,12 +8,12 @@ import okhttp3.mockwebserver.RecordedRequest
 
 class MockResponseDispatcher internal constructor() : Dispatcher() {
 
-    private val weatherHandler = CurrencyRequestHandler()
+    private val currencyRequestHandler = CurrencyRequestHandler()
 
     override fun dispatch(request: RecordedRequest): MockResponse {
 
-        return if (weatherHandler.canHandleRequest(request)) {
-            weatherHandler.getResponse(request)
+        return if (currencyRequestHandler.canHandleRequest(request)) {
+            currencyRequestHandler.getResponse(request)
         } else {
             throwUnsupportedException("Could not handle", request.path)
         }

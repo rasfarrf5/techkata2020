@@ -8,7 +8,7 @@ import okhttp3.mockwebserver.RecordedRequest
 
 class MockResponseDispatcher internal constructor() : Dispatcher() {
 
-    private val weatherHandler = WeatherRequestHandler()
+    private val weatherHandler = CurrencyRequestHandler()
 
     override fun dispatch(request: RecordedRequest): MockResponse {
 

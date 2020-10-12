@@ -3,7 +3,7 @@ package com.sia.tech.kata.base.mockconfig
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
 
-class WeatherRequestHandler : RecordedRequestHandler() {
+class CurrencyRequestHandler : RecordedRequestHandler() {
 
     override fun canHandleRequest(request: RecordedRequest): Boolean {
         return request.method == "GET" && request.path.contains(CURRENCY_ENDPOINT)

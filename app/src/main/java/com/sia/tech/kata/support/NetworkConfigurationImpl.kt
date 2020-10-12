@@ -13,7 +13,7 @@ class NetworkConfigurationImpl(private val context: Context) : NetworkConfigurat
 
     override fun ioScheduler(): Scheduler = Schedulers.io()
 
-    override fun getHost() = "http://localhost:8081/" //"https://api.exchangeratesapi.io"
+    override fun getHost() = "https://api.exchangeratesapi.io" //"http://localhost:8081/"
 
     override fun getCacheDir(): File = context.cacheDir
 

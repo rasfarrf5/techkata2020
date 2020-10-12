@@ -18,8 +18,8 @@ class MainViewModelTest {
     val rule = InstantTaskExecutorRule()
 
     @Test
-    fun onLoginClicked_() {
-        subject.onLoginClicked()
+    fun goToCurrencyButtonClicked() {
+        subject.goToCurrencyButtonClicked()
 
         assertThat(subject.mainLiveData.value).isTrue()
     }

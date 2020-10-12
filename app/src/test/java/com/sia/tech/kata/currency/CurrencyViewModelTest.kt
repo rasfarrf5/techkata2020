@@ -1,6 +1,8 @@
 package com.sia.tech.kata.currency
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.sia.tech.kata.CurrencyProvider
+import com.sia.tech.kata.CurrencyResult
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import org.assertj.core.api.Assertions.assertThat

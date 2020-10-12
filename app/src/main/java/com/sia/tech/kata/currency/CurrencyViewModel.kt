@@ -1,6 +1,8 @@
 package com.sia.tech.kata.currency
 
 import androidx.lifecycle.*
+import com.sia.tech.kata.CurrencyProvider
+import com.sia.tech.kata.CurrencyResult
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

@@ -1,5 +1,7 @@
 package com.sia.tech.kata.currency
 
+import com.sia.tech.kata.CurrencyProvider
+import com.sia.tech.kata.CurrencyResult
 import com.sia.tech.kata.currency.conversion.CurrencyConversionService
 import com.sia.tech.kata.currency.conversion.model.CurrencyConversionResponse
 import io.reactivex.Observable

@@ -1,4 +1,4 @@
-package com.sia.tech.kata.currency
+package com.sia.tech.kata
 
 import com.sia.tech.kata.currency.conversion.CurrencyConversionService
 import com.sia.tech.kata.currency.conversion.model.CurrencyConversionResponse

@@ -1,4 +1,4 @@
-package com.sia.tech.kata.currency
+package com.sia.tech.kata
 
 import java.math.BigDecimal
 

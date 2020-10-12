@@ -4,6 +4,7 @@ import android.content.Context
 import com.sia.tech.kata.currency.CurrencyActivity
 import com.sia.tech.kata.currency.CurrencyModule
 import com.sia.tech.kata.main.MainActivity
+import com.sia.tech.kata.price.PriceDetailsModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -17,7 +18,8 @@ import javax.inject.Singleton
         AppModule::class,
         ViewModelModule::class,
 
-        CurrencyModule::class
+        CurrencyModule::class,
+        PriceDetailsModule::class
     ]
 )
 interface ApplicationComponent {

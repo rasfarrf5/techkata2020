@@ -3,7 +3,6 @@ package com.sia.tech.kata.currency
 import androidx.lifecycle.*
 import com.sia.tech.kata.currency.conversion.CurrencyConversionService
 import io.reactivex.disposables.CompositeDisposable
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class CurrencyViewModel @Inject constructor(
@@ -15,7 +14,7 @@ class CurrencyViewModel @Inject constructor(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onViewCreated() {
-        currencyLiveData.postValue("Date will be display here!")
+        currencyLiveData.value = "Date will be display here!"
 
         val disposable = currencyConversionService.getLatestUpdate()
             .subscribe {

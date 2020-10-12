@@ -1,6 +1,5 @@
 package com.sia.tech.kata.network
 
-import android.content.Context
 import com.sia.tech.kata.network.support.NetworkConfiguration
 import dagger.BindsInstance
 import dagger.Component

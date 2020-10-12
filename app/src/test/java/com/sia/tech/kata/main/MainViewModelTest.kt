@@ -19,7 +19,7 @@ class MainViewModelTest {
 
     @Test
     fun onLoginClicked_() {
-        subject.onLoginClicked()
+        subject.goToCurrencyButtonClicked()
 
         assertThat(subject.mainLiveData.value).isTrue()
     }

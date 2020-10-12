@@ -15,9 +15,6 @@ import retrofit2.Retrofit
 class AppModule {
 
     @Provides
-    fun providesContext(application: TechKataApplication): Context = application.applicationContext
-
-    @Provides
     fun providesNetworkConfiguration(context: Context): NetworkConfiguration =
         NetworkConfigurationImpl(context)
 
@@ -47,8 +44,8 @@ class AppModule {
         CurrencyApiLibrary(retrofit, networkConfiguration)
 
     @Provides
-    fun providesCurrencyConversionService(library: CurrencyApiLibrary): CurrencyConversionService
-            = library.currencyConversionService()
+    fun providesCurrencyConversionService(library: CurrencyApiLibrary): CurrencyConversionService =
+        library.currencyConversionService()
 
 
 }

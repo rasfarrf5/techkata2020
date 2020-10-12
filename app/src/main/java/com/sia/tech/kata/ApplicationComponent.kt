@@ -1,5 +1,6 @@
 package com.sia.tech.kata
 
+import android.content.Context
 import com.sia.tech.kata.currency.CurrencyActivity
 import com.sia.tech.kata.currency.CurrencyModule
 import com.sia.tech.kata.main.MainActivity
@@ -21,16 +22,11 @@ import javax.inject.Singleton
 )
 interface ApplicationComponent {
 
-    @Component.Builder
-    interface Builder {
+    @Component.Factory
+    interface Factory {
 
-        @BindsInstance
-        fun application(techKataApplication: TechKataApplication): Builder
-
-        fun build(): ApplicationComponent
+        fun create(@BindsInstance context: Context): ApplicationComponent
     }
-
-    fun inject(techKataApplication: TechKataApplication)
 
     fun inject(mainActivity: MainActivity)
 

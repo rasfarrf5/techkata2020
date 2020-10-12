@@ -8,15 +8,8 @@ import javax.inject.Inject
 
 class TechKataApplication : Application(), HasAndroidInjector {
 
-    val appComponent = DaggerApplicationComponent.builder()
-        .apply {
-            application(this@TechKataApplication)
-        }.build()
-
-    override fun onCreate() {
-        super.onCreate()
-
-        appComponent.inject(this)
+    val appComponent: ApplicationComponent by lazy {
+        DaggerApplicationComponent.factory().create(applicationContext)
     }
 
     @Inject

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.sia.tech.kata.R
 import com.sia.tech.kata.TechKataApplication
@@ -33,8 +34,9 @@ class CurrencyActivity : AppCompatActivity(), LifecycleOwner {
         (viewDataBinding as ActivityCurrencyBinding).lifecycleOwner = this
         (viewDataBinding as ActivityCurrencyBinding).currencyViewModel = currencyViewModel
 
-        currencyViewModel.currencyLiveData.observe(this, {
-            currencyText.text = it
-        })
+        currencyViewModel.currencyLiveData.observe(
+            this,
+            Observer { currencyText.text = it }
+        )
     }
 }

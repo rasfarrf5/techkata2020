@@ -10,13 +10,13 @@ import com.sia.tech.kata.R
 class MainActivityRobot {
 
     fun seesLoginButton(): MainActivityRobot {
-        onView(withId(R.id.loginButton))
+        onView(withId(R.id.goToCurrencyButton))
             .check(matches(isDisplayed()))
         return this
     }
 
     fun clicksButton(): MainActivityRobot {
-        onView(withId(R.id.loginButton))
+        onView(withId(R.id.goToCurrencyButton))
             .perform(click())
         return this
     }

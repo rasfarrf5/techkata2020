@@ -13,11 +13,11 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-class NetworkModule(private val configuration: NetworkConfiguration) {
+class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpCache(): Cache {
+    fun providesOkHttpCache(configuration: NetworkConfiguration): Cache {
         return Cache(configuration.getCacheDir(), configuration.getCacheSize())
     }
 
@@ -25,38 +25,41 @@ class NetworkModule(private val configuration: NetworkConfiguration) {
     @Singleton
     fun providesOkHttpClient(
         cache: Cache,
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        configuration: NetworkConfiguration
     ): OkHttpClient {
-        val builder = OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .readTimeout(configuration.getTimeoutSeconds(), TimeUnit.SECONDS)
-            .connectTimeout(configuration.getTimeoutSeconds(), TimeUnit.SECONDS)
-            .cache(cache)
-
-        return builder.build()
+        return OkHttpClient.Builder().apply {
+            addInterceptor(httpLoggingInterceptor)
+            readTimeout(configuration.getTimeoutSeconds(), TimeUnit.SECONDS)
+            connectTimeout(configuration.getTimeoutSeconds(), TimeUnit.SECONDS)
+            cache(cache)
+        }.build()
     }
 
     @Provides
     @Singleton
     fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-        return interceptor
+        return HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
     }
 
     @Provides
     @Singleton
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(configuration.getHost())
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(
+    fun providesRetrofit(
+        okHttpClient: OkHttpClient,
+        configuration: NetworkConfiguration
+    ): Retrofit {
+        return Retrofit.Builder().apply {
+            baseUrl(configuration.getHost())
+            addConverterFactory(GsonConverterFactory.create())
+            addCallAdapterFactory(
                 RxThreadCallAdapter(
                     configuration.ioScheduler(),
                     configuration.mainThreadScheduler()
                 )
             )
-            .client(okHttpClient)
-            .build()
+            client(okHttpClient)
+        }.build()
     }
 }

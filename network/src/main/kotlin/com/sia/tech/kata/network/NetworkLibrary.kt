@@ -6,9 +6,7 @@ import retrofit2.Retrofit
 
 class NetworkLibrary constructor(configuration: NetworkConfiguration) {
 
-    private var component: NetworkComponent = DaggerNetworkComponent.builder()
-        .networkModule(NetworkModule(configuration))
-        .build()
+    private var component: NetworkComponent = DaggerNetworkComponent.factory().create(configuration)
 
     fun retrofit(): Retrofit {
         return component.retrofit()

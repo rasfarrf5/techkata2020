@@ -4,6 +4,7 @@ import android.content.Context
 import com.sia.tech.kata.currency.CurrencyActivity
 import com.sia.tech.kata.currency.CurrencyModule
 import com.sia.tech.kata.main.MainActivity
+import com.sia.tech.kata.price.PriceDetailsActivity
 import com.sia.tech.kata.price.PriceDetailsModule
 import dagger.BindsInstance
 import dagger.Component
@@ -33,4 +34,6 @@ interface ApplicationComponent {
     fun inject(mainActivity: MainActivity)
 
     fun inject(currencyActivity: CurrencyActivity)
+
+    fun inject(priceDetailsActivity: PriceDetailsActivity)
 }

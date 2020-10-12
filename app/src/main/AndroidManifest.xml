@@ -22,6 +22,8 @@
 
         <activity android:name=".currency.CurrencyActivity" />
 
+        <activity android:name=".price.PriceDetailsActivity" />
+
     </application>
 
 </manifest>

@@ -1,25 +1,27 @@
 package com.sia.tech.kata.currency
 
 import androidx.lifecycle.*
-import com.sia.tech.kata.currency.conversion.CurrencyConversionService
 import io.reactivex.disposables.CompositeDisposable
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class CurrencyViewModel @Inject constructor(
-    private val currencyConversionService: CurrencyConversionService,
+    private val currencyProvider: CurrencyProvider,
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel(), LifecycleObserver {
 
-    var currencyLiveData = MutableLiveData("")
+    var currencyChangeDate = MutableLiveData("")
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onViewCreated() {
-        currencyLiveData.postValue("Date will be display here!")
+        currencyChangeDate.postValue("Date will be display here!")
 
-        val disposable = currencyConversionService.getLatestUpdate()
+        val disposable = currencyProvider.getCurrencyDetails()
             .subscribe {
-                currencyLiveData.postValue(it.date)
+                if (it is CurrencyResult.Success) {
+                    currencyChangeDate.postValue(it.date)
+                } else {
+                    currencyChangeDate.postValue("")
+                }
             }
 
         compositeDisposable.add(disposable)

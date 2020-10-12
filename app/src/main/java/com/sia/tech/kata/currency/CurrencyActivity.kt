@@ -23,7 +23,9 @@ class CurrencyActivity : AppCompatActivity(), LifecycleOwner {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         (application as TechKataApplication).appComponent.inject(this)
+
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_currency)
 
         currencyViewModel = ViewModelProvider(this, viewModelFactory)
@@ -33,10 +35,5 @@ class CurrencyActivity : AppCompatActivity(), LifecycleOwner {
 
         (viewDataBinding as ActivityCurrencyBinding).lifecycleOwner = this
         (viewDataBinding as ActivityCurrencyBinding).currencyViewModel = currencyViewModel
-
-        currencyViewModel.currencyLiveData.observe(
-            this,
-            Observer { currencyText.text = it }
-        )
     }
 }

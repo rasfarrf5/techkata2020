@@ -18,7 +18,6 @@ class CurrencyViewModel @Inject constructor(
         currencyLiveData.postValue("Date will be display here!")
 
         val disposable = currencyConversionService.getLatestUpdate()
-            .delay(3, TimeUnit.SECONDS)
             .subscribe {
                 currencyLiveData.postValue(it.date)
             }

@@ -77,6 +77,8 @@ dependencies {
     androidTestImplementation instrumentationTestLibraries.testRunner
     androidTestImplementation instrumentationTestLibraries.androidxTestExt
     androidTestImplementation instrumentationTestLibraries.archCore
+    androidTestImplementation instrumentationTestLibraries.okhttpMockWebServer
+    androidTestImplementation instrumentationTestLibraries.rxIdler
     androidTestImplementation unitTestLibraries.assertj
 
     androidTestImplementation unitTestLibraries.mockito
@@ -84,6 +86,11 @@ dependencies {
     testImplementation unitTestLibraries.mockito
     testImplementation unitTestLibraries.assertj
     testImplementation unitTestLibraries.coreTesting
+
+
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.assertj
 
     // androidTestImplementation unitTestLibraries.roboElectric
 

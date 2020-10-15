@@ -7,28 +7,13 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-open class ViewModelFactory @Inject constructor(
-    private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
+class ViewModelFactory @Inject constructor(
+    private val creators: MutableMap<Class<out ViewModel>, Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        var creator: Provider<out ViewModel>? = creators[modelClass]
-        if (creator == null) {
-            for ((key, value) in creators) {
-                if (modelClass.isAssignableFrom(key)) {
-                    creator = value
-                    break
-                }
-            }
-        }
-        if (creator == null) {
-            throw IllegalStateException("Unknown model class: $modelClass")
-        }
-        try {
-            return creator.get() as T
-        } catch (e: Exception) {
-            throw RuntimeException(e)
-        }
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        val creator = creators[modelClass]
+            ?: throw IllegalStateException("Unknown model class: $modelClass")
+        return creator.get() as T
     }
-
 }
